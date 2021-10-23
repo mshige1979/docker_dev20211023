@@ -13,6 +13,9 @@ services:
     #    depends_on:
     #      - php
     #      - db
+    # 環境変数
+    environment:
+      TZ: "Asia/Tokyo"
     # ポート開放
     ports:
       - 80:80
@@ -26,8 +29,10 @@ services:
   frontend:
     # コンテナ名
     container_name: frontend
-    # image
-    image: node:lts-alpine3.14
+    # build
+    build:
+      context: .
+      dockerfile: ./services/frontend/Dockerfile
     # コンテナの中に入る
     tty: true
     # ボリューム
@@ -35,6 +40,9 @@ services:
       - "./projects/frontend:/frontend"
     # WORKDIR
     working_dir: /frontend
+    # 環境変数
+    environment:
+      TZ: "Asia/Tokyo"
     # ポート開放
     ports:
       - 5000:5000
@@ -77,6 +85,7 @@ services:
     image: mdillon/postgis
     # 環境設定
     environment:
+      TZ: "Asia/Tokyo"
       POSTGRES_DB: sample1
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
