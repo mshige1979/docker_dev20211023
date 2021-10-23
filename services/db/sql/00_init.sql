@@ -1,2 +1,2 @@
--- 拡張をインストール
+-- PostGISの拡張機能
 CREATE EXTENSION IF NOT EXISTS postgis;

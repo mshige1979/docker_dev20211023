@@ -31,10 +31,11 @@ services:
       POSTGRES_DB: sample1
       POSTGRES_USER: root
       POSTGRES_PASSWORD: password
+    tty: true
     # ボリューム
     volumes:
       - pg_data:/var/lib/postgresql/data
-      - ./service/db/sql:/docker-entrypoint-initdb.d
+      - ./services/db/sql:/docker-entrypoint-initdb.d
     # ポート開放
     ports:
       - 5432:5432
