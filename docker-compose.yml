@@ -43,9 +43,9 @@ services:
     # 環境変数
     environment:
       TZ: "Asia/Tokyo"
-    # ポート開放
-    ports:
-      - 5000:5000
+  #    # ポート開放
+  #    ports:
+  #      - 5000:5000
 
   # バックエンドサーバ(rails)
   backend:
@@ -73,9 +73,9 @@ services:
       DATABASE_NAME: "sample1"
       DATABASE_USER: root
       DATABASE_PASSWORD: password
-    # ポート開放
-    ports:
-      - 3000:3000
+  #    # ポート開放
+  #    ports:
+  #      - 3000:3000
 
   # DBサーバ
   db:
