@@ -1,0 +1,44 @@
+version: "3"
+
+services:
+  # webサーバ
+  web:
+    # コンテナ名
+    container_name: web
+    # image
+    image: nginx:alpine
+    # 他のコンテナ起動後に起動するように制御
+    #    depends_on:
+    #      - php
+    #      - db
+    # ポート開放
+    ports:
+      - 80:80
+      - 443:443
+  #    # ボリューム
+  #    volumes:
+  #      - "./nginx/conf.d:/etc/nginx/conf.d"
+  #      - "./app:/var/www/html"
+
+  # DBサーバ
+  db:
+    # コンテナ名
+    container_name: pg_db
+    # image
+    image: mdillon/postgis
+    # 環境設定
+    environment:
+      POSTGRES_DB: sample1
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    # ボリューム
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./service/db/sql:/docker-entrypoint-initdb.d
+    # ポート開放
+    ports:
+      - 5432:5432
+
+# 名前付きボリュームをdockerホストの管理下で作成
+volumes:
+  pg_data: {}
