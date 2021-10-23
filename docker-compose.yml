@@ -20,6 +20,16 @@ services:
   #      - "./nginx/conf.d:/etc/nginx/conf.d"
   #      - "./app:/var/www/html"
 
+  ## フロントエンドサーバ(vue)
+  #front:
+  #  # コンテナ名
+  #  container_name: web
+  #  # image
+  #  image: node:lts-alpine3.14
+  #  # ポート開放
+  #  ports:
+  #    - 5000:5000
+
   # DBサーバ
   db:
     # コンテナ名
