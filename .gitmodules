@@ -1,0 +1,6 @@
+[submodule "projects/backend"]
+	path = projects/backend
+	url = https://github.com/mshige1979/docker_dev20211023_backend.git
+[submodule "projects/frontend"]
+	path = projects/frontend
+	url = https://github.com/mshige1979/docker_dev20211023_frontend.git
