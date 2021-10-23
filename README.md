@@ -2,6 +2,39 @@
 
 docker-compose 環境（nginx(80) + vue(5000) + rails(3000) + postgresql(5432)）
 
+## backend
+
+### 初回設定
+
+#### Gemfile をコピー
+
+```
+cp -p
+```
+
+#### コンテナに入る
+
+```
+docker-compose exec backend bash
+```
+
+#### rails インストール
+
+```
+bundle install
+bundle exec rails new . --force --no-deps --database=postgresql --skip-bundle
+bundle install
+bundle exec rails webpacker:install
+bundle exec rails webpacker:install:vue
+```
+
+### rails アプリ準備後
+
+```
+docker-compose run backend bundle install
+docker-compose run backend yarn
+```
+
 ## 別プロジェクトの git をサブモジュール化
 
 ### サブモジュール追加
@@ -28,6 +61,12 @@ git submodule add https://github.com/mshige1979/docker_dev20211023_backend.git b
 ```
 
 ## docker コマンド
+
+### ビルド
+
+```
+docker-compose build --no-cache
+```
 
 #### 起動
 

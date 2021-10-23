@@ -33,6 +33,8 @@ services:
     # ボリューム
     volumes:
       - "./projects/frontend:/frontend"
+    # WORKDIR
+    working_dir: /frontend
     # ポート開放
     ports:
       - 5000:5000
@@ -41,13 +43,28 @@ services:
   backend:
     # コンテナ名
     container_name: backend
-    # image
-    image: ruby:3.0.2
+    # build
+    build:
+      context: .
+      dockerfile: ./services/backend/Dockerfile
     # コンテナの中に入る
     tty: true
+    # 他のコンテナ起動後に起動するように制御
+    depends_on:
+      - db
     # ボリューム
     volumes:
       - "./projects/backend:/backend"
+    # WORKDIR
+    working_dir: /backend
+    # 環境変数
+    environment:
+      TZ: "Asia/Tokyo"
+      RAILS_ENV: "development"
+      DATABASE_HOST: "db"
+      DATABASE_NAME: "sample1"
+      DATABASE_USER: root
+      DATABASE_PASSWORD: password
     # ポート開放
     ports:
       - 3000:3000
