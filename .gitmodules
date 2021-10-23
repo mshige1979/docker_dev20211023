@@ -1,8 +1,10 @@
 [submodule "projects/backend"]
 	path = projects/backend
 	url = https://github.com/mshige1979/docker_dev20211023_backend.git
+	branch = main
 	ignore = dirty
 [submodule "projects/frontend"]
 	path = projects/frontend
 	url = https://github.com/mshige1979/docker_dev20211023_frontend.git
+	branch = main
 	ignore = dirty
