@@ -2,7 +2,43 @@
 
 docker-compose 環境（nginx(80) + vue(5000) + rails(3000) + postgresql(5432)）
 
-## backend
+## install
+
+### git clone
+
+```
+git clone https://github.com/mshige1979/docker_dev20211023.git --recursive
+```
+
+### docker build
+
+```
+cd docker_dev20211023
+docker-compose build --no-cache
+```
+
+### backend install
+
+```
+docker-compose run backend bundle install
+docker-compose run backend yarn
+```
+
+### frontend install
+
+```
+TBD
+```
+
+### run
+
+```
+docker-compose up -d
+```
+
+---
+
+## backend 巡撫
 
 ### 初回設定
 
@@ -59,6 +95,8 @@ git submodule add https://github.com/mshige1979/docker_dev20211023_backend.git b
 	url = https://github.com/mshige1979/docker_dev20211023_frontend.git
 	ignore = dirty
 ```
+
+---
 
 ## docker コマンド
 
