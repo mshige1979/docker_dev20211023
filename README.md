@@ -1,6 +1,13 @@
 # docker_dev20211023
 
-docker-compose 環境（nginx(80) + vue(5000) + rails(3000) + postgresql(5432)）
+## 概要
+
+docker を用いた開発環境もどき
+
+- web(nginx)
+- frontend(vue)
+- backend(rails)
+- db(postgresql)
 
 ## install
 
@@ -38,14 +45,15 @@ docker-compose up -d
 
 ---
 
-## backend 巡撫
+## backend 設定
 
 ### 初回設定
 
 #### Gemfile をコピー
 
 ```
-cp -p
+cp -p ./services/backend/Gemfile ./projects/backend/.
+cp -p ./services/backend/Gemfile.lock ./projects/backend/.
 ```
 
 #### コンテナに入る
@@ -64,12 +72,7 @@ bundle exec rails webpacker:install
 bundle exec rails webpacker:install:vue
 ```
 
-### rails アプリ準備後
-
-```
-docker-compose run backend bundle install
-docker-compose run backend yarn
-```
+---
 
 ## 別プロジェクトの git をサブモジュール化
 
