@@ -30,6 +30,7 @@ docker-compose build --no-cache
 docker-compose run --rm backend bundle install
 docker-compose run --rm backend yarn
 docker-compose run --rm frontend yarn
+docker-compose run --rm backend bundle exec solargraph config .
 ```
 
 ### run
