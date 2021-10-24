@@ -48,7 +48,8 @@ services:
   #      - 5000:5000
 
   # バックエンドサーバ(rails)
-  backend:
+  backend: &backend
+    #
     # コンテナ名
     container_name: backend
     # build
@@ -63,6 +64,7 @@ services:
     # ボリューム
     volumes:
       - "./projects/backend:/backend"
+      - bundle:/usr/local/bundle:cached
     # WORKDIR
     working_dir: /backend
     # 環境変数
@@ -73,9 +75,23 @@ services:
       DATABASE_NAME: "sample1"
       DATABASE_USER: root
       DATABASE_PASSWORD: password
-  #    # ポート開放
-  #    ports:
-  #      - 3000:3000
+    # ポート開放
+    ports:
+      - 3000:3000
+      #- 1234:1234
+      #- 26162:26162
+
+  # rubyコード補完用
+  solargraph:
+    <<: *backend
+    #
+    # コンテナ名
+    container_name: solargraph
+    # 起動コマンド
+    command: bundle exec solargraph socket --host=0.0.0.0 --port=7658
+    # ポート開放
+    ports:
+      - 8091:7658
 
   # DBサーバ
   db:
@@ -101,4 +117,7 @@ services:
 
 # 名前付きボリュームをdockerホストの管理下で作成
 volumes:
+  # postgresqk
   pg_data: {}
+  # bundle
+  bundle: {}

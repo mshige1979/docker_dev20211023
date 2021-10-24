@@ -20,6 +20,12 @@ docker-compose up -d
 docker-compose down --rmi all --volumes --remove-orphans
 ```
 
+#### 未使用の image クリア
+
+```
+docker system prune
+```
+
 #### image を削除
 
 ```
