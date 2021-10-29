@@ -45,7 +45,7 @@ services:
       TZ: "Asia/Tokyo"
     # ポート開放
     ports:
-      - 5000:5000
+      - 5001:5000
 
   # バックエンドサーバ(rails)
   backend: &backend
@@ -98,8 +98,10 @@ services:
   db:
     # コンテナ名
     container_name: db
-    # image
-    image: postgis/postgis
+    # build
+    build:
+      context: .
+      dockerfile: ./services/db/Dockerfile
     # 環境設定
     environment:
       TZ: "Asia/Tokyo"
@@ -112,6 +114,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
       - ./services/db/sql:/docker-entrypoint-initdb.d
+      - ./projects/db/tmp:/tmp
     # ポート開放
     ports:
       - 5432:5432
