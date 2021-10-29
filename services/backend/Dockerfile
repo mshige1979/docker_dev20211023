@@ -11,7 +11,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 # 開発用パッケージインストール
 RUN apt-get update -qq && \
-    apt-get install -y vim build-essential libpq-dev nodejs npm yarn && \
+    apt-get install -y vim build-essential libpq-dev nodejs npm yarn postgresql-client && \
     apt-get clean && \
     rm -rf /var/cache/apt
 
