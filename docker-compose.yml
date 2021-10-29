@@ -64,6 +64,7 @@ services:
     # ボリューム
     volumes:
       - "./projects/backend:/backend"
+      - ./projects/db/tmp:/tmp/db
       - bundle:/usr/local/bundle:cached
     # WORKDIR
     working_dir: /backend
@@ -114,7 +115,7 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
       - ./services/db/sql:/docker-entrypoint-initdb.d
-      - ./projects/db/tmp:/tmp
+      - ./projects/db/tmp:/tmp/db
     # ポート開放
     ports:
       - 5432:5432

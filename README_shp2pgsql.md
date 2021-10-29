@@ -59,3 +59,9 @@ shp2pgsql -W cp932 -D -I -s 4612 C23-06_01-g_Coastline.shp test_table1 > C23-06_
 ## 参考情報
 
 https://zenn.dev/boiledorange73/books/b1de0a18073af70946e0
+
+### import
+
+```
+psql -Uroot -W -h db -p 5432 -d sample1_dev < /tmp/db/C23-06_01_GML/C23-06_01-g_Coastline.sql
+```
