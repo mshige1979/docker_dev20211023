@@ -26,9 +26,9 @@ C:\Program Files\PostgreSQL\13\bin\postgisgui
 
 ### Linux
 
-Dockerfile でインストール済み  
-基本、postgis/postgis にパッケージはインストール済み
-ただ、バージョンが多少古くてツールが入っていないため、apt でアップデートする
+今回は Dockerfile 内の「postgis/postgis」でインストール済み  
+基本、「postgis/postgis」 にパッケージはインストール済み
+ただ、ツールの「shp2pgsql」が入っていないため、apt でアップデートする必要がある。
 
 ```
 apt-get upgrade -y
