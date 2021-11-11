@@ -1,3 +1,4 @@
+/*
 INSERT INTO sample_point(name,geom)
     VALUES ('point1',ST_GeomFromText('POINT(35.67 139.75)',4326));
 
@@ -15,3 +16,4 @@ SELECT ST_AsGeoJSON(geom)::json AS geometry
 
 SELECT ST_AsGeoJSON(geom)::json AS geometry
     FROM sample_polygon;
+*/

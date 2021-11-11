@@ -1,4 +1,5 @@
 -- テーブルを作成
+/*
 CREATE TABLE sample_point (
     id SERIAL PRIMARY KEY
     , name text
@@ -16,3 +17,4 @@ CREATE TABLE sample_polygon (
     , name TEXT
     geom GEOMETRY (POLYGON , 4326)
 );
+*/
